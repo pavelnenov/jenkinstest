@@ -1,28 +1,30 @@
 import java.text.SimpleDateFormat
 
+def releaseDate = new Date().format("yyyy-w")
 
 pipeline {
     agent any
+
+    environment {
+                VERSION = releaseDate
+            }
+
     stages {
         stage('build') {
             steps {
 //                 sh './gradlew assemble'
             script {
                     println "------------"
-                    def date = getDate()
+                    def date = releaseDate
                     println "date is " + date
                     println "------------"
                 }
 //                 sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
 //                 sh "git push origin ${getDate()}"
-                sh "echo ${date}"
-//                 sh 'echo ========================'
+                sh 'echo ========================'
+                sh "echo ${releaseDate}"
+                sh 'echo ========================'
             }
         }
     }
-}
-
-def getDate() {
-    def date = new Date().format("yyyy-w")
-    return date
 }
