@@ -6,7 +6,7 @@ pipeline {
     agent any
 
     environment {
-                VERSION = releaseDate
+                VERSION = "${releaseDate}"
             }
 
     stages {
