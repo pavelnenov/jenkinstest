@@ -9,7 +9,7 @@ pipeline {
 //                 sh './gradlew assemble'
                 println "------------"
                 println getDate()
-                def currentDate = getDate()
+                String currentDate = getDate()
                 println "------------"
                 sh 'echo ========================'
                 sh "echo ${currentDate}"
