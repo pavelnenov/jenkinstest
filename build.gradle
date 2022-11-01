@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'org.example'
-version = System.getenv("VERSION") ?: "SNAPSHOT-1.0"
+version = System.getProperty("VERSION", "SNAPSHOT-1.0")
 
 repositories {
     mavenCentral()
@@ -24,3 +24,4 @@ compileKotlin {
 compileTestKotlin {
     kotlinOptions.jvmTarget = '1.8'
 }
+

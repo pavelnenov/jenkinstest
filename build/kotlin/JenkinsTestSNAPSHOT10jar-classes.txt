@@ -1,0 +1,1 @@
+/Users/pavel.nenov/Projects/JenkinsTest/build/classes/kotlin/main/NothingHere.class

@@ -5,9 +5,9 @@ def releaseDate = new Date().format("yyyy-w")
 pipeline {
     agent any
 
-    environment {
-                VERSION = "${releaseDate}"
-            }
+//     environment {
+//                 VERSION = "${releaseDate}"
+//             }
 
     stages {
         stage('build') {
