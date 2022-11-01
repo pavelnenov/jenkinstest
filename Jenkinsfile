@@ -9,9 +9,11 @@ pipeline {
 //                 sh './gradlew assemble'
                 println "------------"
                 println getDate()
+                def currentDate = getDate()
                 println "------------"
                 sh 'echo ========================'
-                sh "echo ${getDate()}"
+                sh "echo ${currentDate}"
+                sh 'echo ========================'
             }
         }
     }
