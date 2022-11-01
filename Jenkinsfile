@@ -24,6 +24,7 @@ pipeline {
                 sh 'echo ========================'
                 sh "echo ${releaseDate}"
                 sh 'echo ========================'
+                sh 'find . -name "*.jar"'
             }
         }
     }
