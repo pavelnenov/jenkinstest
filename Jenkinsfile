@@ -11,7 +11,7 @@ pipeline {
 
     triggers {
         parameterizedCron('''
-           9 3 * * * %RELEASE_BUILD=true
+           9 15 * * * %RELEASE_BUILD=true
         ''')
     }
 
