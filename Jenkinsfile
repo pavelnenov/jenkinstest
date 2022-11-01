@@ -8,12 +8,13 @@ pipeline {
             steps {
 //                 sh './gradlew assemble'
                 println "------------"
-                println getDate()
+                def date = getDate()
+                prinln "date is " + date
                 println "------------"
-                sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
-                sh "git push origin ${getDate()}"
-                sh "echo ${getDate()}"
-                sh 'echo ========================'
+//                 sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
+//                 sh "git push origin ${getDate()}"
+//                 sh "echo ${getDate()}"
+//                 sh 'echo ========================'
             }
         }
     }
