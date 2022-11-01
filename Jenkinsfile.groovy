@@ -4,11 +4,20 @@ def releaseDate = new Date().format("yyyy-w")
 
 pipeline {
     agent any
+
+    parameters {
+        booleanParam(name: 'RELEASE_BUILD', defaultValue: 'false', description: 'Midnight build')
+    }
+
+    triggers {
+        parameterizedCron('''
+           7 3 * * MON %RELEASE_BUILD=true
+        ''')
+    }
+
     stages {
         stage('build') {
-            when {
-                expression { c  }
-            }
+
             steps {
                 sh "./gradlew assemble -DVERSION=${releaseDate}"
             script {
@@ -23,7 +32,7 @@ pipeline {
                 sh "echo ${releaseDate}"
                 sh 'echo ========================'
                 sh 'find . -name "*.jar"'
-                echo  "${currentBuild.getBuildCauses()[0].shortDescription}"
+                echo  env.RELEASE_BUILD
             }
         }
     }
