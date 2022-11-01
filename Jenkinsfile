@@ -21,3 +21,4 @@ def getDate() {
     def date = new Date()
     def date = new Date().format("yyyy-w")
     return date
+}
