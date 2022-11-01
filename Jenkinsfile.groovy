@@ -4,13 +4,11 @@ def releaseDate = new Date().format("yyyy-w")
 
 pipeline {
     agent any
-
-//     environment {
-//                 VERSION = "${releaseDate}"
-//             }
-
     stages {
         stage('build') {
+            when {
+                expression { c  }
+            }
             steps {
                 sh "./gradlew assemble -DVERSION=${releaseDate}"
             script {
@@ -25,6 +23,7 @@ pipeline {
                 sh "echo ${releaseDate}"
                 sh 'echo ========================'
                 sh 'find . -name "*.jar"'
+                echo  "${currentBuild.getBuildCauses()[0].shortDescription}"
             }
         }
     }
