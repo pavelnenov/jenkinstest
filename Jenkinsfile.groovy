@@ -32,7 +32,7 @@ pipeline {
                 sh "echo ${releaseDate}"
                 sh 'echo ========================'
                 sh 'find . -name "*.jar"'
-                echo  env.RELEASE_BUILD
+                sh "echo asd  ${env.RELEASE_BUILD}"
             }
         }
     }
