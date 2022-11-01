@@ -15,7 +15,7 @@ pipeline {
                 }
 //                 sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
 //                 sh "git push origin ${getDate()}"
-//                 sh "echo ${getDate()}"
+                sh "echo ${date}"
 //                 sh 'echo ========================'
             }
         }
