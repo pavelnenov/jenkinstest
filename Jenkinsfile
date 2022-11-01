@@ -11,7 +11,7 @@ pipeline {
                 println getDate()
                 println "------------"
                 sh 'echo ========================'
-                sh 'echo '
+                sh "echo ${getDate()}"
             }
         }
     }
