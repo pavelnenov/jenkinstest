@@ -12,7 +12,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-//                 sh './gradlew assemble'
+                sh "./gradlew assemble -DVERSION=${releaseDate}"
             script {
                     println "------------"
                     def date = releaseDate
