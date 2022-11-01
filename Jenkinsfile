@@ -1,9 +1,9 @@
 pipeline {
-    agent { docker { image 'maven:3.8.6-openjdk-11-slim' } }
+    agent { docker { image 'gradle:7.5.1-jdk11' } }
     stages {
         stage('build') {
             steps {
-                sh 'mvn --version'
+                gradlew('assemble')
             }
         }
     }
