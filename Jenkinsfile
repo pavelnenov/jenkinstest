@@ -10,7 +10,7 @@ pipeline {
             script {
                     println "------------"
                     def date = getDate()
-                    prinln "date is " + date
+                    println "date is " + date
                     println "------------"
                 }
 //                 sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
