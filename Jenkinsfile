@@ -32,7 +32,7 @@ pipeline {
                     println "date is " + date
                     println "------------------------------------------------------------"
                     TEST_IMAGE= "corda-os-docker-dev.software.r3.com/corda-%s-test:${env.GIT_BRANCH.replace('/', '-')}"
-                    println $TEST_IMAGE
+                    println TEST_IMAGE
                     def concreteImage = String.format(TEST_IMAGE, "PAFPAFPAF")
 
                     println str % "YO"
