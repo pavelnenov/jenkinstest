@@ -33,8 +33,8 @@ pipeline {
                     println "date is " + date
                     println "------------"
                 }
-//                 sh "git tag -a ${getDate()} -m \"Bump version to ${getDate()}\""
-//                 sh "git push origin ${getDate()}"
+                sh "git tag -a ${releaseDate} -m \"Bump version to ${getDate()}\""
+                sh "git push origin ${releaseDate}"
                 sh 'echo ========================'
                 sh "echo ${releaseDate}"
                 sh 'echo ========================'
