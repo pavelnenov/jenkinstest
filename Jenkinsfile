@@ -22,6 +22,8 @@ pipeline {
             steps {
                 sh "./gradlew assemble -DVERSION=${releaseDate}"
             script {
+                    echo sh(script: 'env|sort', returnStdout: true)
+                    println "0000000000000"
                     def causes = currentBuild.getBuildCauses()
                     causes.each {
                     println "111111111111"
