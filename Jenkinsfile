@@ -21,6 +21,12 @@ pipeline {
             steps {
                 sh "./gradlew assemble -DVERSION=${releaseDate}"
             script {
+                    def causes = currentBuild.getBuildCauses()
+                    causes.each {
+                    println "111111111111"
+                        echo "$it"
+                    println "111111111111"
+                    }
                     println "------------"
                     def date = releaseDate
                     println "date is " + date
