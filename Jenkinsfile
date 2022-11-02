@@ -10,9 +10,9 @@ pipeline {
     }
 
     triggers {
-        parameterizedCron('''
-           9 15 * * * %RELEASE_BUILD=true
-        ''')
+//         parameterizedCron('''
+//            9 15 * * * %RELEASE_BUILD=true
+//         ''')
     }
 
     stages {
