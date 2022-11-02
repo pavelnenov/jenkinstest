@@ -9,11 +9,11 @@ pipeline {
         booleanParam(name: 'RELEASE_BUILD', defaultValue: 'false', description: 'Midnight build')
     }
 
-    triggers {
-//         parameterizedCron('''
-//            9 15 * * * %RELEASE_BUILD=true
-//         ''')
-    }
+//     triggers {
+// //         parameterizedCron('''
+// //            9 15 * * * %RELEASE_BUILD=true
+// //         ''')
+//     }
 
     stages {
         stage('build') {
