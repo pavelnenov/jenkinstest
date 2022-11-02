@@ -31,7 +31,7 @@ pipeline {
                     def date = releaseDate
                     println "date is " + date
                     println "------------------------------------------------------------"
-                    TEST_IMAGE= "corda-os-docker-dev.software.r3.com/corda-${simulationName}-test:${env.GIT_BRANCH.replace('/', '-')}"
+                    TEST_IMAGE= "corda-os-docker-dev.software.r3.com/corda-%s-test:${env.GIT_BRANCH.replace('/', '-')}"
                     println $TEST_IMAGE
                     def concreteImage = String.format(TEST_IMAGE, "PAFPAFPAF")
 
@@ -39,13 +39,13 @@ pipeline {
 
 
                 }
-                sh "git tag -a ${releaseDate} -m \"Bump version to ${releaseDate}\""
-                sh "git push origin ${releaseDate}"
-                sh 'echo ========================'
-                sh "echo ${releaseDate}"
-                sh 'echo ========================'
-                sh 'find . -name "*.jar"'
-                sh "echo asd  ${env.RELEASE_BUILD}"
+//                 sh "git tag -a ${releaseDate} -m \"Bump version to ${releaseDate}\""
+//                 sh "git push origin ${releaseDate}"
+//                 sh 'echo ========================'
+//                 sh "echo ${releaseDate}"
+//                 sh 'echo ========================'
+//                 sh 'find . -name "*.jar"'
+//                 sh "echo asd  ${env.RELEASE_BUILD}"
             }
         }
     }
