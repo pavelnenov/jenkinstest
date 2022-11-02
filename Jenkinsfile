@@ -5,9 +5,6 @@ def releaseDate = new Date().format("yyyy-w")
 pipeline {
     agent any
 
-    parameters {
-        booleanParam(name: 'RELEASE_BUILD', defaultValue: 'false', description: 'Midnight build')
-    }
 
 //     triggers {
 // //         parameterizedCron('''
@@ -20,7 +17,7 @@ pipeline {
         stage('build') {
 
             steps {
-                sh "./gradlew assemble -DVERSION=${releaseDate}"
+                sh "./gradlew build -DRELEASE_VERSION=${releaseDate}"
             script {
                     echo sh(script: 'env|sort', returnStdout: true)
                     println "0000000000000"
@@ -33,7 +30,12 @@ pipeline {
                     println "------------"
                     def date = releaseDate
                     println "date is " + date
-                    println "------------"
+                    println "------------------------------------------------------------"
+
+                    def str = "paf %s what"
+                    println str % "YO"
+
+
                 }
                 sh "git tag -a ${releaseDate} -m \"Bump version to ${releaseDate}\""
                 sh "git push origin ${releaseDate}"
