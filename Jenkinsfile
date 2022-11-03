@@ -14,6 +14,11 @@ pipeline {
 // //         ''')
 //     }
 
+    environment {
+        TEST_IMAGE= "corda-os-docker-dev.software.r3.com/corda-%s-test:${env.GIT_BRANCH.replace('/', '-')}"
+        CURRENT_TEST_NAME = String.format(TEST_IMAGE, ${params.TEST_NAME})
+    }
+
     parameters {
              choice(name: 'TEST_NAME', choices: ['Soak', 'BasicReliability'], description: 'Name of the simulation for which to build Docker image')
         }
@@ -26,7 +31,7 @@ pipeline {
             script {
                     echo sh(script: 'env|sort', returnStdout: true)
                     println "0000000000000"
-                    println imageName
+                    println CURRENT_TEST_NAME
                     println "0000000000000"
                     def causes = currentBuild.getBuildCauses()
                     causes.each {
