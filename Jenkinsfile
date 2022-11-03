@@ -16,7 +16,7 @@ pipeline {
 
     environment {
         TEST_IMAGE= "corda-os-docker-dev.software.r3.com/corda-%s-test:${env.GIT_BRANCH.replace('/', '-')}"
-        CURRENT_TEST_NAME = String.format(TEST_IMAGE, ${params.TEST_NAME})
+        CURRENT_TEST_NAME = String.format(TEST_IMAGE, params.TEST_NAME)
     }
 
     parameters {
