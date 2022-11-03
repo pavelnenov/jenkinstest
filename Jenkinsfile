@@ -2,6 +2,8 @@ import java.text.SimpleDateFormat
 
 def releaseDate = new Date().format("yyyy-w")
 
+def imageName = String.format(TEST_IMAGE, TEST_NAME)
+
 pipeline {
     agent any
 
@@ -12,6 +14,9 @@ pipeline {
 // //         ''')
 //     }
 
+    parameters {
+             choice(name: 'TEST_NAME', choices: ['Soak', 'BasicReliability'], description: 'Name of the simulation for which to build Docker image')
+        }
 
     stages {
         stage('build') {
@@ -20,6 +25,8 @@ pipeline {
                 sh "./gradlew build -DRELEASE_VERSION=${releaseDate}"
             script {
                     echo sh(script: 'env|sort', returnStdout: true)
+                    println "0000000000000"
+                    println imageName
                     println "0000000000000"
                     def causes = currentBuild.getBuildCauses()
                     causes.each {
