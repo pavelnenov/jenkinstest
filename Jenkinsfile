@@ -2,7 +2,7 @@ import java.text.SimpleDateFormat
 
 def releaseDate = new Date().format("yyyy-w")
 
-def imageName = String.format(TEST_IMAGE, TEST_NAME)
+
 
 pipeline {
     agent any
@@ -57,3 +57,5 @@ pipeline {
         }
     }
 }
+
+def imageName = String.format(TEST_IMAGE, TEST_NAME)
